@@ -9,7 +9,7 @@
                     };
                     $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?", parameters, function(data) {
                         var address = data["results"][0]["address_components"];
-                        $("#here").append(address[2]["short_name"] + ", " + address[3]["short_name"]);
+                        $("#here").append("<span id = 'you'>" + address[2]["short_name"] + ", " + address[3]["short_name"] + "</span>");
                     });
                     url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/60174b206c1ec5ad81b665c91d64730f/" + lat + "," + lng + "?units=si&exclude=minutely,hourly,daily,alert,flags";
                     //get weather
@@ -23,22 +23,23 @@
                         var skycons = new Skycons({"color": "#42A5F5", "resizeClear": true});
                         skycons.add("icon1", icon);
                         skycons.play();
-                        
-                        
-                    });
-                    
-                    $(document).on("click", "#change", function() {
-                            var fahrenheit = changeCelsiusDegree($("#cel").text());
-                            console.log($("#cel"));
-                            $("#cel").html(fahrenheit.toFixed());
-                            $("#change").html("&deg;F");
+                        var state = true;
+                        $(document).on("click", "#change", function() {
+                            if (state == true) {
+                                var fahrenheit = changeCelsiusDegree($("#cel").text());
+                                console.log($("#cel"));
+                                $("#cel").html(fahrenheit.toFixed());
+                                $("#change").html("&deg;F");
+                                state = false;
+                        } else {
+                                $("#cel").html(weather["currently"]["temperature"].toFixed());
+                                $("#change").html("&deg;C");
+                                state = true;
+                            }
                         });
-                    
+                    });
                 });
-                    
-                
             }
-            
             function changeCelsiusDegree(cel) {
                 return cel * 9 / 5 + 32;
             }

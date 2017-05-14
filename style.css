@@ -28,13 +28,18 @@ body {
     padding-bottom: 55px;
     text-align: center;
     font-family: 'Pacifico', cursive;
-    font-size: 70px;
+    font-size: 5vw;
 }
 
 .display {
     text-align: center;
     font-family: 'Overpass Mono', monospace;
     margin-top: 40px;
+    
+}
+
+#you {
+    color:#80CBC4;
 }
 
 .weather-icon {
@@ -48,7 +53,7 @@ body {
 
 #here {
     font-family: 'Indie Flower', cursive;
-    font-size: 30px;
+    font-size: 4.5vw;
 }
 
 #change {

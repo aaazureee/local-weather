@@ -20,7 +20,7 @@
                         $("#humid").html("Humidity: " + weather["currently"]["humidity"] * 100 + "%");
                         $("#wind").html("Windspeed: " + weather["currently"]["windSpeed"] + " m/s");
                         var icon = weather["currently"]["icon"];
-                        var skycons = new Skycons({"color": "white", "resizeClear": true});
+                        var skycons = new Skycons({"color": "#42A5F5", "resizeClear": true});
                         skycons.add("icon1", icon);
                         skycons.play();
                         

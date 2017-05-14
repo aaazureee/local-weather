@@ -51,6 +51,14 @@ body {
     font-size: 30px;
 }
 
+#change {
+    cursor: pointer;
+}
+
+#change:hover {
+    color: #3F51B5;
+}
+
 /* Custom page CSS
 -------------------------------------------------- */
 

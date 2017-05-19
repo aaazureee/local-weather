@@ -72,6 +72,21 @@ body {
     display: table;
 }
 
+@media (max-width: 767px) {
+    .test img {
+        width: 10%;
+    }
+    .mt-1 {
+        font-size: 250%;
+    }
+}
+
+@media (min-width: 768px) {
+    .test img {
+        width: 7%;
+    }
+}
+
 
 /* Custom page CSS
 -------------------------------------------------- */

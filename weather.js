@@ -1,6 +1,8 @@
         $(document).ready(function () {
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
+                    console.log("Here~");
                     var lat = position.coords.latitude;
                     var lng = position.coords.longitude;
                     // get address
@@ -11,7 +13,7 @@
                         var address = data.results[0].address_components;
                         $("#here").append("<span id = 'you'>" + address[2].short_name + ", " + address[3].short_name + "</span>");
                     });
-                    var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/60174b206c1ec5ad81b665c91d64730f/" + lat + "," + lng + "?units=si&exclude=minutely,daily,alert,flags";
+                    var url = "https://api.darksky.net/forecast/60174b206c1ec5ad81b665c91d64730f/" + lat + "," + lng + "?units=si&exclude=minutely,daily,alert,flags&callback=?";
                     //get weather
                     $.getJSON(url, function (weather) {
                         $("#weather").html(weather.currently.summary);

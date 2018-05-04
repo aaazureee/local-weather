@@ -6,7 +6,8 @@ $(document).ready(function () {
 			var lng = position.coords.longitude;
 			// get address
 			var parameters = {
-				latlng: lat + "," + lng
+				latlng: lat + "," + lng,
+				key: 'AIzaSyDYaUARRRukAMFaDNGD6aCzOTYiT3XSaY0'
 			};
 			$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?", parameters, function (data) {
 				var address = data.results[0].address_components;
